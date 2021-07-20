@@ -1,6 +1,12 @@
 import React from 'react';
+import { getCurrentUser } from '../actions/currentUser'
+import { connect } from 'react-redux'
 
 class NewDive extends React.Component {
+
+    componentDidMount() {
+        this.props.getCurrentUser()
+      }
 
     constructor() {
         super();
@@ -29,7 +35,6 @@ class NewDive extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const {
-            userId,
             buddy,
             date,
             time,
@@ -43,7 +48,7 @@ class NewDive extends React.Component {
         } = this.state
 
         let diveInfo = {
-            user_id: userId,
+            user_id: this.props.currentUser.id,
             buddy: buddy,
             date: date,
             time: time,
@@ -91,6 +96,7 @@ class NewDive extends React.Component {
 
 
     render() {
+        const { currentUser } = this.props
         const {
             userId,
             buddy,
@@ -107,17 +113,9 @@ class NewDive extends React.Component {
 
         return (
             <div className='new-dive-form center'>
-                <h2>New Dive</h2>
+                <h2>Tell us about your dive, {currentUser.username}</h2>
+                
                 <form onSubmit={this.handleSubmit}>
-                    <input
-                        placeholder="user id"
-                        type="text"
-                        name="userId"
-                        value={userId}
-                        onChange={this.handleChange}
-                    />
-                    <br></br>
-                    <br></br>
                     <input
                         placeholder="Dive Buddy"
                         type="text"
@@ -215,4 +213,11 @@ class NewDive extends React.Component {
         )
     }
 }
-export default NewDive;
+
+const mapStateToProps = ({ currentUser }) => {
+    return {
+      currentUser
+    }
+  }
+
+export default connect(mapStateToProps, {getCurrentUser: getCurrentUser})(NewDive)

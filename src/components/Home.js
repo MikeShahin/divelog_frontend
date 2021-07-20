@@ -16,7 +16,9 @@ class Home extends React.Component {
       <div>
         <h1>Welcome to the Dive Log</h1>
         <h2>{ currentUser ?
-        `Logged in as ${currentUser.username}` :
+         
+        < Logout />
+        :
         "Not logged in"
        }</h2>
       </div>

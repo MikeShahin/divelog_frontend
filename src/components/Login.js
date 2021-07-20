@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUser, setCurrentUser } from '../actions/currentUser'
+import { signin, getCurrentUser, setCurrentUser } from '../actions/currentUser'
 import Logout from '../components/Logout'
 
 class Login extends Component {
@@ -27,6 +27,7 @@ class Login extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault()
+    // this.props.signin()
     const {username, email, password} = this.state
     let userInfo = {
       username: username,
@@ -128,10 +129,18 @@ class Login extends Component {
 }
 
 const mapStateToProps = ({ currentUser }) => {
-  console.log(currentUser)
   return {
-
     currentUser
   }
 }
-export default connect(mapStateToProps, {setCurrentUser, getCurrentUser})(Login);
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     signin: () => dispatch(signin())
+//   }
+// }
+export default connect(mapStateToProps, 
+                      {signin, setCurrentUser, getCurrentUser}//, 
+                      // mapDispatchToProps
+                      )
+                      (Login);

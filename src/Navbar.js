@@ -1,8 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { getCurrentUser } from './actions/currentUser';
+import { connect } from 'react-redux'
 
 class Navbar extends React.Component {
+
+  componentDidMount() {
+    this.props.getCurrentUser()
+  }
+
   render() {
+    const { currentUser } = this.props
     return (
       <div className="navbar">
 
@@ -14,6 +22,23 @@ class Navbar extends React.Component {
               >Home</NavLink>
           </li>
           <li>|</li>
+          { currentUser ? 
+            <li>
+              <NavLink
+                to="/newdive"
+                exact
+                >New Dive</NavLink>
+            </li> 
+            
+            :
+            <li>
+              <NavLink
+                to="/login"
+                exact
+                >Login</NavLink>
+             </li>
+          }
+          <li>|</li>
           <li>
               <NavLink
                 to="/newuser"
@@ -21,24 +46,16 @@ class Navbar extends React.Component {
                 >New User</NavLink>
             </li>
             <li>|</li>
-            <li>
-              <NavLink
-                to="/login"
-                exact
-                >Login</NavLink>
-            </li>
-            <li>|</li>
-            <li>
-              <NavLink
-                to="/newdive"
-                exact
-                >New Dive</NavLink>
-            </li>
-
           </ul>
       </div>
     )
   }
 }
 
-export default Navbar; 
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps, {getCurrentUser})(Navbar); 
