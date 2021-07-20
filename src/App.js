@@ -5,9 +5,15 @@ import Login from './components/Login'
 import NewUser from './components/NewUser';
 import Navbar from './Navbar'
 import NewDive from './components/NewDive'
+import { getCurrentUser } from './actions/currentUser'
 import './App.css';
+import { connect } from 'react-redux'
 
 class App extends Component {
+
+  componentDidMount() {
+      this.props.getCurrentUser()
+  }
 
   render() {
     return (
@@ -25,4 +31,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(null, {getCurrentUser})(App);

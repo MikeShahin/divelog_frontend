@@ -1,4 +1,4 @@
-export const setCurrentUser = ({user}) => {
+export const setCurrentUser = (user) => {
     return {
       type: "SET_CURRENT_USER",
       user
@@ -22,6 +22,5 @@ export const getCurrentUser = userCredentials => {
             }
             })
             .catch(console.log)
-
     }
 }

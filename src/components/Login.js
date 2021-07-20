@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUser } from '../actions/currentUser'
+import { getCurrentUser, setCurrentUser } from '../actions/currentUser'
 import Logout from '../components/Logout'
 
 class Login extends Component {
@@ -52,7 +52,7 @@ class Login extends Component {
           console.log("login state:", this.state)
           alert("invalid credentials")
         } else {
-          
+          this.props.setCurrentUser(data.user)
           this.setState({
             currentUser: data.user,
             loginForm: {
@@ -90,7 +90,7 @@ class Login extends Component {
     return (
       <div>
         <h2>{ currentUser ?
-        `Logged in as ${currentUser.username}` :
+        `Logged in as ${currentUser.username}, id: ${currentUser.id}` :
         "Not logged in"
        }</h2>
 
@@ -122,15 +122,16 @@ class Login extends Component {
           </button> 
          </form>
          < Logout logout={this.logout}/>
-         <button onClick={this.stateCheck}>State</button>
       </div>
     );
   }
 }
 
 const mapStateToProps = ({ currentUser }) => {
+  console.log(currentUser)
   return {
+
     currentUser
   }
 }
-export default connect(mapStateToProps, {getCurrentUser: getCurrentUser})(Login);
+export default connect(mapStateToProps, {setCurrentUser, getCurrentUser})(Login);
