@@ -6,6 +6,10 @@ class NewDive extends React.Component {
 
     componentDidMount() {
         this.props.getCurrentUser()
+
+        if (!this.props.currentUser == null) {
+            this.props.history.push('/')
+        }
       }
 
     constructor() {
@@ -98,7 +102,6 @@ class NewDive extends React.Component {
     render() {
         const { currentUser } = this.props
         const {
-            userId,
             buddy,
             date,
             time,

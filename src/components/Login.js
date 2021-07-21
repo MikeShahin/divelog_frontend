@@ -62,15 +62,14 @@ class Login extends Component {
               password: ""
             }
           })
-          // this.redirect()
-          console.log("login state:", this.state)
+          this.redirect()
         }
       })
       .catch(console.log)
   };
   
   redirect = () => {
-    this.props.history.push('/')
+    this.props.history.push('/dashboard')
   }
   
   handleErrors = () => {

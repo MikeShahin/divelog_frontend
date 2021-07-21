@@ -59,7 +59,6 @@ export const getCurrentUser = userCredentials => {
             .then(r => r.json())
             .then(resp => {
             if (resp.error) {
-                console.log("not working ughhh")
             } else {
                 dispatch(setCurrentUser(resp))
             }

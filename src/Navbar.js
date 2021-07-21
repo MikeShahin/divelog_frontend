@@ -23,29 +23,42 @@ class Navbar extends React.Component {
           </li>
           <li>|</li>
           { currentUser ? 
-            <li>
-              <NavLink
-                to="/newdive"
-                exact
-                >New Dive</NavLink>
-            </li> 
+          <div>
+              <li>
+                <NavLink
+                  to="/dashboard"
+                 exact 
+                >Dashboard</NavLink>
+
+
+              </li>
+              <li>|</li>
+              <li>
+                <NavLink
+                  to="/newdive"
+                  exact
+                  >New Dive</NavLink>
+              </li> 
             
+            </div>
             :
-            <li>
-              <NavLink
-                to="/login"
-                exact
-                >Login</NavLink>
-             </li>
-          }
-          <li>|</li>
-          <li>
+            <>
+              <li>
+                <NavLink
+                  to="/login"
+                  exact
+                  >Login</NavLink>
+              </li>
+              <li>|</li>
+              <li>
               <NavLink
                 to="/newuser"
                 exact
                 >New User</NavLink>
-            </li>
-            <li>|</li>
+              </li>
+            </>
+          
+          }
           </ul>
       </div>
     )
