@@ -1,34 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchDives } from '../actions/dives';
-import UserDiveCard from '../components/UserDiveCard';
+import AllDivesCard from '../components/AllDivesCard';
 
 class Dashboard extends Component {
     componentDidMount() {
-        // const url = 'http://localhost:3001/users/1/'
         this.props.fetchDives()
-        // console.log("Dashboard mount", this.props)
     }
     
     loggedDives = () => {
         console.log("inside loggedDives()", this.props.currentUser)
         // return this.props.dives.filter(dives => dives.user_id === this.props.currentUser.id).map(dive => <li key={dive.id}>{dive.location}, {dive.buddy}</li>)
-        return this.props.dives.filter(dives => dives.user_id === this.props.currentUser.id).map(dive => <UserDiveCard key={dive.id} {...dive} />)
+        return this.props.dives.map(dive => <AllDivesCard key={dive.id} {...dive} />)
     }
     
     render() {
         console.log("Dashboard render", this.state)
         return (
             <div className="dives">
-                <h2>{this.props.currentUser.username}'s Dashboard</h2>
-                {/* { this.state ? 
-                <ul> {this.loggedDives()}</ul>
-                :
-                <h2>nothing</h2>
-                
-            } */}
+                <h2>All Logged Dives!</h2>
                 <> {this.loggedDives()}</>
-                {/* <p>{this.props.currentUser.id}</p> */}
             </div>
         )
     }
@@ -37,7 +28,6 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
     console.log("mapState", state)
     return {
-        currentUser: state.currentUser,
         dives: state.dives.data
     }
 }

@@ -94,7 +94,9 @@ class NewDive extends React.Component {
                 comments: '',
                 picture: ''
             })
+            this.props.history.push('/dashboard')
             console.log(data)
+
         })
     };
 

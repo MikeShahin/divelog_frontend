@@ -12,15 +12,19 @@ class Home extends React.Component {
 
   render() {
     const { currentUser } = this.props
+    console.log("Home render", this.state)
     return (
       <div>
-        <h1>Welcome to the Dive Log</h1>
-        <h2>{ currentUser ?
-         
-        < Logout />
+        <>{ currentUser ?
+        <div>
+
+          <h1>Welcome to the Dive Log, {currentUser.username}</h1>
+          
+          < Logout />
+        </div>
         :
-        "Not logged in"
-       }</h2>
+        <h1>Welcome to the Dive Log, please log in</h1>
+       }</>
       </div>
     )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { getCurrentUser } from './actions/currentUser';
+import { getCurrentUser } from '../actions/currentUser';
 import { connect } from 'react-redux'
 
 class Navbar extends React.Component {
@@ -59,6 +59,13 @@ class Navbar extends React.Component {
             </>
           
           }
+            <li>|</li>
+              <li>
+                <NavLink
+                  to="/dives"
+                  exact
+                  >All Dives</NavLink>
+              </li>
           </ul>
       </div>
     )

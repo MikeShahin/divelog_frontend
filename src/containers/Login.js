@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, getCurrentUser, setCurrentUser } from '../actions/currentUser'
-import Logout from '../components/Logout'
+import Logout from './Logout';
 
 class Login extends Component {
 
@@ -20,10 +20,6 @@ class Login extends Component {
       [name]: value
     })
   };
-
-  stateCheck = () => {
-    console.log("w", this.state)
-  }
   
   handleSubmit = (event) => {
     event.preventDefault()
@@ -67,22 +63,33 @@ class Login extends Component {
       })
       .catch(console.log)
   };
-  
+  ///////////////////////////////////////////////////////////
+  // state = {
+  //   username: '',
+  //   email: '',
+  //   password: ''
+  // }
+
+  // handleChange = (e) => {
+  //   const {name, value} = e.target
+  //   this.setState({
+  //     [name]: value
+  //   })
+  // };
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   this.props.signin(this.state)
+  //   this.setState({
+  //     username: '',
+  //     email: '',
+  //     password: ''
+  //   })
+  // }
+////////////////////////////////////////////////////////////////
   redirect = () => {
     this.props.history.push('/dashboard')
   }
-  
-  handleErrors = () => {
-    return (
-      <div>
-        <ul>
-        {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
-          })}
-        </ul>
-      </div>
-    )
-  };
   
   render() {
     const {username, email, password} = this.state 

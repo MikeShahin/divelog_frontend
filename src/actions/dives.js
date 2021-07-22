@@ -1,9 +1,6 @@
-export function showDive() {
+export function fetchDives() {
     return (dispatch) => {
-
-        // dispatch({type: "LOADING"})
-        // fetch(`http://localhost:3001/users/${this.props.currentUser.id}`)
-        return fetch('http://localhost:3001/users/1/')
+        return fetch('http://localhost:3001/dives/')
         .then(response => response.json())
         .then(json => dispatch(
             { type: "SHOW_DIVES", data: json }))
