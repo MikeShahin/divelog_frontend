@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchDives } from '../actions/dives';
 import AllDivesCard from '../components/AllDivesCard';
 
 class Dashboard extends Component {
-    componentDidMount() {
-        this.props.fetchDives()
-    }
-    
     loggedDives = () => {
         console.log("inside loggedDives()", this.props.currentUser)
         // return this.props.dives.filter(dives => dives.user_id === this.props.currentUser.id).map(dive => <li key={dive.id}>{dive.location}, {dive.buddy}</li>)
@@ -19,7 +14,11 @@ class Dashboard extends Component {
         return (
             <div className="dives">
                 <h2>All Logged Dives!</h2>
-                <> {this.loggedDives()}</>
+                { this.props.dives ? 
+                <ul> {this.loggedDives()}</ul>
+                :
+                <h2>Something went wrong, please try again.</h2>
+                }
             </div>
         )
     }
@@ -32,10 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    // console.log("hello", currentUser)
-    return {
-        fetchDives: () => dispatch(fetchDives())
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard)

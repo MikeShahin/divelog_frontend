@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Home from './containers/Home'
+import Home from './components/Home'
 import Login from './containers/Login'
 import NewUser from './containers/NewUser';
 import Navbar from './components/Navbar'
 import NewDive from './containers/NewDive'
 import Dashboard from './containers/Dashboard';
 import AllDives from './containers/AllDives';
+import { fetchDives } from './actions/dives';
 import { getCurrentUser } from './actions/currentUser'
 import './App.css';
 import { connect } from 'react-redux'
@@ -15,6 +16,7 @@ class App extends Component {
 
   componentDidMount() {
       this.props.getCurrentUser()
+      this.props.fetchDives()
   }
 
   render() {
@@ -35,4 +37,5 @@ class App extends Component {
     );
   }
 }
-export default connect(null, {getCurrentUser})(App);
+
+export default connect(null, {getCurrentUser, fetchDives})(App);

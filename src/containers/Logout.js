@@ -1,11 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setCurrentUser } from '../actions/currentUser';
+import { Redirect } from "react-router";
+
 
 class Logout extends React.Component {
+    state = {
+        navigate: false
+    }
 
     handleClick = (e) => {
         e.preventDefault()
+        this.setState({
+            navigate: true
+        })
         fetch("http://localhost:3001/logout", {
             method: "DELETE",
             credentials: "include",
@@ -14,20 +22,22 @@ class Logout extends React.Component {
             }
         })
         .then(res => res.json())
-        .then(data => alert(data.message))
-        console.log("logout state:", this.state)
-        this.props.setCurrentUser(null)
-        this.setState({
-        ...this.state, currentUser: null,
+        .then(data => {
+            // alert(data.message)
+            this.props.setCurrentUser(null)
         })
     }
-
     render() {
+        const { navigate } = this.state
+
+        if (navigate) {
+            return <Redirect to="/" push={true} />
+        }
         return (
 
-            <div>
-            <button onClick={this.handleClick}>Logout</button>
-        </div>
+            <div className="center">
+                <button onClick={this.handleClick}>Logout</button>
+            </div>
             )
     }
 }

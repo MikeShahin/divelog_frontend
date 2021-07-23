@@ -1,16 +1,9 @@
 import React from 'react';
-import { getCurrentUser } from '../actions/currentUser'
+// import { getCurrentUser } from '../actions/currentUser'
 import { connect } from 'react-redux'
+import { Redirect } from "react-router";
 
 class NewDive extends React.Component {
-
-    componentDidMount() {
-        this.props.getCurrentUser()
-
-        if (!this.props.currentUser == null) {
-            this.props.history.push('/')
-        }
-      }
 
     constructor() {
         super();
@@ -140,7 +133,7 @@ class NewDive extends React.Component {
                         onChange={this.handleChange}
                     />                  
                     <input
-                        placeholder="dive time"
+                        placeholder="dive time (min.)"
                         type="time"
                         name="time"
                         value={time}
@@ -158,7 +151,7 @@ class NewDive extends React.Component {
                     <br></br>
                     <br></br>
                     <input
-                        placeholder="water temperature"
+                        placeholder="water temperature (F)"
                         type="text"
                         name="temperature"
                         value={temperature}
@@ -167,7 +160,7 @@ class NewDive extends React.Component {
                     <br></br>
                     <br></br>
                     <input
-                        placeholder="visibility"
+                        placeholder="visibility (m)"
                         type="text"
                         name="visibility"
                         value={visibility}
@@ -196,7 +189,7 @@ class NewDive extends React.Component {
                     <input
                         placeholder="image link"
                         type="text"
-                        name="imageLink"
+                        name="picture"
                         value={picture}
                         onChange={this.handleChange}
                     />
@@ -225,4 +218,4 @@ const mapStateToProps = ({ currentUser }) => {
     }
   }
 
-export default connect(mapStateToProps, {getCurrentUser: getCurrentUser})(NewDive)
+export default connect(mapStateToProps)(NewDive)
