@@ -10,6 +10,8 @@ export const signin = (credentials) => {
       })
         .then(r => r.json())
         .then(response => {
+          console.log("login after signup", response)
+          console.log("login creds after signup", credentials)
           if (response.error) {
             alert("invalid credentials")
           } else {
@@ -17,14 +19,13 @@ export const signin = (credentials) => {
               type: "SET_CURRENT_USER", 
               user: response.user
             })
-            console.log(response)
           }
         })
         .catch(console.log)
     }
 }
 
-export const setCurrentUser = (user) => {
+export const setCurrentUser = ({user}) => {
     return {
       type: "SET_CURRENT_USER",
       user
@@ -41,6 +42,7 @@ export const getCurrentUser = userCredentials => {
             })
             .then(r => r.json())
             .then(resp => {
+              console.log(resp)
             if (resp.error) {
             } else {
                 dispatch(setCurrentUser(resp))

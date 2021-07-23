@@ -10,13 +10,13 @@ class Home extends React.Component {
       <div className="home center">
           <>{ this.props.currentUser ?
           <div>
-            <h1>Welcome to the Dive Log, {this.props.currentUser.username}</h1>
+            <h1>Welcome to Dive Log, {this.props.currentUser.username}</h1>
             <img src="https://i.imgur.com/51b4HOy.jpg" alt="dive pic" />
             < Logout />
           </div>
           :
           <>
-            <h1>Welcome to the Dive Log, please log in</h1>
+            <h1>Welcome to the Dive Log!</h1>
             <img src="https://i.imgur.com/4PV97qz.jpg" alt="dive pic" />
           </>
         }</>

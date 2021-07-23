@@ -1,15 +1,14 @@
-const initialState = {
-    data: null,
-}
-
-export const divesReducer = (state = initialState, action) => {
+export const divesReducer = (state = {}, action) => {
     switch(action.type) {
-        // case 'LOADING':
-        //     console.log("Loading diveFetch action", action)
-        //     return 'Loading';
 
         case 'SHOW_DIVES':
             return { ...state, data: action.data }
+
+        case 'CREATE_DIVE':
+            return {
+                ...state,
+                dive: action.dive
+            }
         
         default:
             return state

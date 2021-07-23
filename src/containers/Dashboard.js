@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import Logout from './Logout';
 import UserDiveCard from '../components/UserDiveCard';
 import { Redirect } from "react-router";
+import { fetchDives } from '../actions/dives';
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.fetchDives()
+    }
 
     loggedDives = () => {
         return this.props.dives.filter(dives => dives.user_id === this.props.currentUser.id).map(dive => <UserDiveCard key={dive.id} {...dive} />)
     }
     
     render() {
-        console.log("Dashboard render", this.props)
         return (
             <div className="dives">
                 { this.props.currentUser ? 
@@ -34,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps, {fetchDives})(Dashboard)

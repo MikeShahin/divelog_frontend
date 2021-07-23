@@ -23,10 +23,10 @@ class NewUser extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.signup(this.state)
     this.setState({
       navigate: true
   })
-    this.props.signup(this.state)
   }
 
   render() {

@@ -1,96 +1,49 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { addDive, fetchDives } from '../actions/dives'
 
 class NewDive extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            userId: '',
-            buddy: '',
-            date: '',
-            time: '',
-            location: '',
-            temperature: '',
-            visibility: '',
-            diveTime: '',
-            depth: '',
-            comments: '',
-            picture: ''
-        }
+    state = {
+        userId: '',
+        buddy: '',
+        date: '',
+        time: '',
+        location: '',
+        temperature: '',
+        visibility: '',
+        diveTime: '',
+        depth: '',
+        comments: '',
+        picture: ''
     }
 
     handleChange = (e) => {
         const {name, value} = e.target
         this.setState({
-            [name]: value
+            [name]: value,
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const {
-            buddy,
-            date,
-            time,
-            location,
-            temperature,
-            visibility,
-            diveTime,
-            depth,
-            comments,
-            picture
-        } = this.state
-
         let diveInfo = {
             user_id: this.props.currentUser.id,
-            buddy: buddy,
-            date: date,
-            time: time,
-            location: location,
-            temperature: temperature,
-            visibility: visibility,
-            dive_time: diveTime,
-            depth: depth,
-            comments: comments,
-            picture: picture
+            buddy: this.state.buddy,
+            date: this.state.date,
+            time: this.state.time,
+            location: this.state.location,
+            temperature: this.state.temperature,
+            visibility: this.state.visibility,
+            dive_time: this.state.diveTime,
+            depth: this.state.depth,
+            comments: this.state.comments,
+            picture: this.state.picture
         }
-
-        const headers = {
-            method: "POST",
-            // credentials: "include",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                dive: diveInfo
-            })
-        }
-
-        fetch('http://localhost:3001/dives', headers)
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            this.setState({
-                userId: '',
-                buddy: '',
-                date: '',
-                time: '',
-                location: '',
-                temperature: '',
-                visibility: '',
-                diveTime: '',
-                depth: '',
-                comments: '',
-                picture: ''
-            })
-            this.props.history.push('/dashboard')
-            console.log(data)
-
-        })
-    };
-
+        this.props.addDive(diveInfo)
+        this.props.fetchDives()
+        this.props.history.push('/dashboard')
+    }
 
     render() {
         const { currentUser } = this.props
@@ -218,4 +171,4 @@ const mapStateToProps = ({ currentUser }) => {
     }
   }
 
-export default connect(mapStateToProps)(NewDive)
+export default connect(mapStateToProps, { addDive, fetchDives })(NewDive)

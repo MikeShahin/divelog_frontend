@@ -17,6 +17,7 @@ export const signup = (userInfo) => {
                     type: "CREATE_USER",
                     user: response
                 })
+                alert("Success, please log in!")
             }
         })
     }
