@@ -4,6 +4,7 @@ import { signup } from '../actions/newUser'
 import { getCurrentUser } from '../actions/currentUser'
 import { signin } from '../actions/currentUser'
 import { Redirect } from "react-router";
+
 class NewUser extends React.Component {
 
   state = {
@@ -18,7 +19,6 @@ class NewUser extends React.Component {
     this.setState({
       [name]: value,
     })
-    console.log(this.state)
   };
 
   handleSubmit = (e) => {

@@ -17,7 +17,7 @@ class Dashboard extends Component {
                 { this.props.currentUser ? 
                 <>
                 <h2>{this.props.currentUser.username}'s Dashboard</h2>
-                <ul> {this.loggedDives()}</ul>
+                <> {this.loggedDives()}</>
                 </>
                 :
                 <Redirect to="/" push={true} />
@@ -28,7 +28,6 @@ class Dashboard extends Component {
     }
 }
 const mapStateToProps = state => {
-    console.log("mapState", state)
     return {
         currentUser: state.currentUser,
         dives: state.dives.data

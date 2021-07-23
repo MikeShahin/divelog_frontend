@@ -7,11 +7,11 @@ import {
   applyMiddleware,
   compose,
   combineReducers
-} from 'redux'
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
+} from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 import { currentUserReducer } from './reducers/currentUserReducer';
-import { divesReducer } from './reducers/divesReducer'
+import { divesReducer } from './reducers/divesReducer';
 import { newUserReducer } from './reducers/newUserReducer';
 
 const rootReducer = combineReducers({

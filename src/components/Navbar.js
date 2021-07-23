@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { getCurrentUser } from '../actions/currentUser';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class Navbar extends React.Component {
 

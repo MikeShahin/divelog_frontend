@@ -10,8 +10,6 @@ export const signin = (credentials) => {
       })
         .then(r => r.json())
         .then(response => {
-            console.log("Signin Credentials", credentials)
-            console.log("Signin resp", response)
           if (response.error) {
             alert("invalid credentials")
           } else {

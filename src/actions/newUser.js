@@ -10,8 +10,6 @@ export const signup = (userInfo) => {
         })
         .then(r => r.json())
         .then(response => {
-            console.log("New User Response", response)
-            console.log("New User Response-info", userInfo)
             if (response.error) {
                 alert("something went wrong!")
             } else {

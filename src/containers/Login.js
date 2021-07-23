@@ -21,7 +21,6 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.signin(this.state)
-    console.log("signIN state", this.state)
   }
   
   render() {
@@ -74,13 +73,5 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     signin: () => dispatch(signin())
-//   }
-// }
-export default connect(mapStateToProps, 
-                      {signin, setCurrentUser, getCurrentUser}//, 
-                      // mapDispatchToProps
-                      )
-                      (Login);
+
+export default connect(mapStateToProps, {signin, setCurrentUser, getCurrentUser})(Login);

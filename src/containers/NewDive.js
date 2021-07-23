@@ -1,7 +1,5 @@
 import React from 'react';
-// import { getCurrentUser } from '../actions/currentUser'
 import { connect } from 'react-redux'
-import { Redirect } from "react-router";
 
 class NewDive extends React.Component {
 
@@ -57,7 +55,7 @@ class NewDive extends React.Component {
             comments: comments,
             picture: picture
         }
-        console.log(this.state)
+
         const headers = {
             method: "POST",
             // credentials: "include",
@@ -185,6 +183,8 @@ class NewDive extends React.Component {
                         onChange={this.handleChange}
                     />
                     <br></br>
+                    <br></br>
+                    <label>Direct link (link ending in .jpg, png, etc.) to image uploaded <a href="https://imgur.com/">here</a>:</label>
                     <br></br>
                     <input
                         placeholder="image link"
