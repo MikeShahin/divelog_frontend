@@ -21,6 +21,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.signin(this.state)
+    console.log("signIN state", this.state)
   }
   
   render() {

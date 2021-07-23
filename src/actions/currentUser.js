@@ -51,3 +51,20 @@ export const getCurrentUser = userCredentials => {
             .catch(console.log)
     }
 }
+
+export const logout = () => {
+  return dispatch => {
+    return fetch("http://localhost:3001/logout", {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+          "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(() => {
+        dispatch({type: "CLEAR_SESSION"})
+    })
+    }
+
+}

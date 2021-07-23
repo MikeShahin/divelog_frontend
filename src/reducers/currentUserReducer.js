@@ -8,6 +8,9 @@ export const currentUserReducer = (state = null, action) => {
         return {
              ...state
             }
+        
+      case "CLEAR_SESSION":
+        return null
          
     default:
         return state

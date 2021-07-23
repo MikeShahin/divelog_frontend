@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class Home extends React.Component {
 
   render() {
-
+    console.log("home", this.props.currentUser)
     return (
       <div className="home center">
           <>{ this.props.currentUser ?

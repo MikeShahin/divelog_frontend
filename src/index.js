@@ -12,10 +12,12 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { currentUserReducer } from './reducers/currentUserReducer';
 import { divesReducer } from './reducers/divesReducer'
+import { newUserReducer } from './reducers/newUserReducer';
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
-  dives: divesReducer
+  dives: divesReducer,
+  newUser: newUserReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
