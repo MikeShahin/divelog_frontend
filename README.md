@@ -10,7 +10,7 @@ Dive Log is a React/Redux project for Flatiron school that allows users to log a
 
 2. in the backend folder, open a command prompt and type rails s to start the database server.
 
-3. Open a command prompt in this project folder, type npm install & npm start, then navigate to http://localhost:3000/ to access the site. 
+3. Open a command prompt in this project folder, type "npm install & npm start", then navigate to http://localhost:3000/ to access the site. 
 
 ## Usage/features
 
