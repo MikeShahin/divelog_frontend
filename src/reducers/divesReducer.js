@@ -8,6 +8,11 @@ export const divesReducer = (state = {}, action) => {
             return {
                 ...state,
                 dive: action.dive
+                ////////////////
+                // dives: {
+                //     ...state,
+                //     data: action.dive
+                // }
             }
         
         default:

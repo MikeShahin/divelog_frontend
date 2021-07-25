@@ -36,37 +36,36 @@ class NewUser extends React.Component {
         return <Redirect to="/login" push={true} />
       }
       return (
-          <div>
-              <h1>Sign Up</h1>        
+          <div className="form-center">
               <form onSubmit={this.handleSubmit}>
-                <input
-                  placeholder="username"
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={this.handleChange}
-                />
-
-                <input
-                  placeholder="email"
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-
-                <input 
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                />       
-            
-                <button placeholder="submit" type="submit">
-                  Sign Up
-                </button>
-            
+                  <h1>Sign Up</h1>
+                  <label>Username:</label>        
+                  <input
+                    placeholder="username"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={this.handleChange}
+                  />
+                  <label>Email:</label>
+                  <input
+                    placeholder="email"
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={this.handleChange}
+                  />
+                  <label>Password:</label>
+                  <input 
+                    placeholder="password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                  />       
+                  <button placeholder="submit" type="submit">
+                    Sign Up
+                  </button>
               </form>
           </div>
       );

@@ -9,7 +9,15 @@ class Navbar extends React.Component {
     this.props.getCurrentUser()
   }
 
+  
   render() {
+    const link = {
+      width: '100px',
+      padding: '12px',
+      margin: '0 6px 6px',
+      textDecoration: 'none',
+      color: 'teal',
+    }
     const { currentUser } = this.props
     return (
       <div className="navbar">
@@ -19,6 +27,10 @@ class Navbar extends React.Component {
             <NavLink
               to="/"
               exact
+              style={link}
+              activeStyle={{
+                color: 'aqua',
+              }}
               >Home</NavLink>
           </li>
           <li>|</li>
@@ -27,7 +39,11 @@ class Navbar extends React.Component {
               <li>
                 <NavLink
                   to="/dashboard"
-                 exact 
+                 exact
+                 style={link}
+                 activeStyle={{
+                   color: 'aqua'
+                 }} 
                 >Dashboard</NavLink>
 
 
@@ -37,6 +53,10 @@ class Navbar extends React.Component {
                 <NavLink
                   to="/newdive"
                   exact
+                  style={link}
+                  activeStyle={{
+                    color: 'aqua'
+                  }}
                   >New Dive</NavLink>
               </li> 
             
@@ -47,6 +67,10 @@ class Navbar extends React.Component {
                 <NavLink
                   to="/login"
                   exact
+                  style={link}
+                  activeStyle={{
+                    color: 'aqua'
+                  }}
                   >Login</NavLink>
               </li>
               <li>|</li>
@@ -54,6 +78,10 @@ class Navbar extends React.Component {
               <NavLink
                 to="/newuser"
                 exact
+                style={link}
+                activeStyle={{
+                  color: 'aqua'
+                }}
                 >New User</NavLink>
               </li>
             </>
@@ -64,6 +92,10 @@ class Navbar extends React.Component {
                 <NavLink
                   to="/dives"
                   exact
+                  style={link}
+                  activeStyle={{
+                    color: 'aqua'
+                  }}
                   >All Dives</NavLink>
               </li>
           </ul>

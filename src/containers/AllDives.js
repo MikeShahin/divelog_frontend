@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import AllDivesCard from '../components/AllDivesCard';
+import { fetchDives } from '../actions/dives';
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.fetchDives()
+    }
+
     loggedDives = () => {
         return this.props.dives.map(dive => <AllDivesCard key={dive.id} {...dive} />)
     }
@@ -27,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps, {fetchDives})(Dashboard)

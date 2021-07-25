@@ -20,7 +20,7 @@ class Dashboard extends Component {
             <div className="dives">
                 { this.props.currentUser ? 
                 <>
-                <h2>{this.props.currentUser.username}'s Dashboard</h2>
+                    <h2>{this.props.currentUser.username}'s Logged Dives</h2>
                 <> {this.loggedDives()}</>
                 </>
                 :

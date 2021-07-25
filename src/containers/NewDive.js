@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { addDive, fetchDives } from '../actions/dives'
+import { addDive } from '../actions/dives'
 
 class NewDive extends React.Component {
 
@@ -41,7 +41,6 @@ class NewDive extends React.Component {
             picture: this.state.picture
         }
         this.props.addDive(diveInfo)
-        this.props.fetchDives()
         this.props.history.push('/dashboard')
     }
 
@@ -61,10 +60,10 @@ class NewDive extends React.Component {
         } = this.state
 
         return (
-            <div className='new-dive-form center'>
-                <h2>Tell us about your dive, {currentUser.username}</h2>
+            <div className='new-dive-form form-newdive'>
                 
                 <form onSubmit={this.handleSubmit}>
+                <h2>Tell us about your dive, {currentUser.username}</h2>
                     <input
                         placeholder="Dive Buddy"
                         type="text"
@@ -171,4 +170,4 @@ const mapStateToProps = ({ currentUser }) => {
     }
   }
 
-export default connect(mapStateToProps, { addDive, fetchDives })(NewDive)
+export default connect(mapStateToProps, { addDive })(NewDive)

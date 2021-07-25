@@ -7,7 +7,6 @@ import Navbar from './components/Navbar'
 import NewDive from './containers/NewDive'
 import Dashboard from './containers/Dashboard';
 import AllDives from './containers/AllDives';
-import { fetchDives } from './actions/dives';
 import { getCurrentUser } from './actions/currentUser'
 import './App.css';
 import { connect } from 'react-redux'
@@ -16,7 +15,6 @@ class App extends Component {
 
   componentDidMount() {
       this.props.getCurrentUser()
-      this.props.fetchDives()
   }
 
   render() {
@@ -38,4 +36,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {getCurrentUser, fetchDives})(App);
+export default connect(null, {getCurrentUser})(App);

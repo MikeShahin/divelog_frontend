@@ -27,13 +27,14 @@ class Login extends Component {
     const {username, email, password} = this.state 
     const { currentUser } = this.props
     return (
-      <div>
+      <>
         { currentUser ?
         <Redirect to="/dashboard" push={true} />
          :
-        <div>
-          <h1>Log In</h1>        
+        <div className="form-center">
           <form onSubmit={this.handleSubmit}>
+          <h1>Log In</h1> 
+            <label>Username:</label>
             <input
               placeholder="username"
               type="text"
@@ -41,6 +42,7 @@ class Login extends Component {
               value={username}
               onChange={this.handleChange}
             />
+            <label>Email:</label>
             <input
               placeholder="email"
               type="text"
@@ -48,6 +50,7 @@ class Login extends Component {
               value={email}
               onChange={this.handleChange}
             />
+            <label>Password:</label>
             <input
               placeholder="password"
               type="password"
@@ -62,7 +65,7 @@ class Login extends Component {
         </div>
        }
 
-      </div>
+      </>
     );
   }
 }
