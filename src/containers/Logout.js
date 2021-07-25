@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/currentUser';
 import { Redirect } from "react-router";
 
-
 class Logout extends React.Component {
     state = {
         navigate: false

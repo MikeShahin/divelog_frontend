@@ -10,8 +10,6 @@ export const signin = (credentials) => {
       })
         .then(r => r.json())
         .then(response => {
-          console.log("login after signup", response)
-          console.log("login creds after signup", credentials)
           if (response.error) {
             alert("invalid credentials")
           } else {
@@ -42,7 +40,6 @@ export const getCurrentUser = userCredentials => {
             })
             .then(r => r.json())
             .then(resp => {
-              console.log(resp)
             if (resp.error) {
             } else {
                 dispatch(setCurrentUser(resp))

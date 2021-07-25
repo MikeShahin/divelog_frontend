@@ -60,8 +60,7 @@ class NewDive extends React.Component {
         } = this.state
 
         return (
-            <div className='new-dive-form form-newdive'>
-                
+            <div className='new-dive-form form-newdive'>          
                 <form onSubmit={this.handleSubmit}>
                 <h2>Tell us about your dive, {currentUser.username}</h2>
                     <input
@@ -156,8 +155,7 @@ class NewDive extends React.Component {
                     />
                     <br></br>
                     <br></br>
-                    <button placeholder="submit" type="submit">Log Dive</button>
-                    
+                    <button placeholder="submit" type="submit">Log Dive</button>                   
                 </form>
             </div>
         )

@@ -76,5 +76,4 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-
 export default connect(mapStateToProps, {signin, setCurrentUser, getCurrentUser})(Login);

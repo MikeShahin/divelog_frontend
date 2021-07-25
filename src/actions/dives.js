@@ -19,8 +19,6 @@ export function addDive(diveInfo) {
         })
         .then(r => r.json())
         .then(response => {
-            console.log("New Dive res-info", diveInfo)
-            console.log("New Dive res", response)
             if (response.error) {
                 alert("something went wrong!")
             } else {

@@ -21,7 +21,7 @@ class Dashboard extends Component {
                 { this.props.currentUser ? 
                 <>
                     <h2>{this.props.currentUser.username}'s Logged Dives</h2>
-                <> {this.loggedDives()}</>
+                    <> {this.loggedDives()}</>
                 </>
                 :
                 <Redirect to="/" push={true} />

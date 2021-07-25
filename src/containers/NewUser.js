@@ -71,6 +71,7 @@ class NewUser extends React.Component {
       );
     }
 }
+
 const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser
